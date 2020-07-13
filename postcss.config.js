@@ -10,7 +10,7 @@ module.exports = {
       // 转换单位，就vw
       viewportUnit: "vw",   
       // 指定忽略的class，该项目采用.ignore的正则表达
-      selectorBlackList: ['.ignore'],
+      selectorBlackList: ['.ignore', '.van-'],
       // 表示最小的不转换单位值
       minPixelValue: 1,
       // 允许在媒体查询中转换`px`
