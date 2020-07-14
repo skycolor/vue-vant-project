@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 let axiosInstance
 // 超时时间
 const timeout = 30000
@@ -11,7 +12,11 @@ class MyRequest {
     })
     // 添加请求拦截器
     axiosInstance.interceptors.request.use(config => {
-      let { isLoading } = config.options
+      let { isLoading, isMock } = config.options
+      // 处理mock数据模拟
+      if (process.env.NODE_ENV === 'development' && isMock) {
+        config.baseURL = ""
+      }
       if (config.method == 'get' && config.data) {
         config.params = config.data
       }
@@ -23,8 +28,8 @@ class MyRequest {
       })
       return config
     }, error => {
-        global.toast.clear()
-        return Promise.reject(error)
+      global.toast.clear()
+      return Promise.reject(error)
     })
     // 添加响应拦截器
     axiosInstance.interceptors.response.use(response => {
@@ -61,7 +66,7 @@ let MyHttp = function (defaultParams, ALL_API) {
   let resource = {}
   for (let actionName in ALL_API) {
     let _config = ALL_API[actionName]
-    // options为对象包含（dealException：是否单独处理错误信息, isLoading：是否显示Loading，contentType请求类型）
+    // options为对象包含（dealException：是否单独处理错误信息, isLoading：是否显示Loading，contentType请求类型，isMock 是否用mock模拟数据）
     resource[actionName] = (pdata, options = {}) => {
       let paramsData = Object.assign({}, defaultParams, pdata)
       return myRequest.sendRrquest(_config.url, _config.method, paramsData, {

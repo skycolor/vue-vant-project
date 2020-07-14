@@ -13,6 +13,11 @@ import { Toast, Dialog, Lazyload, Image as VanImage } from 'vant';
 // 工具
 import myUtils from './utils'
 
+// 开发环境引入mock数据
+if (process.env.NODE_ENV === 'development') {
+  require('./mock/index')
+}
+
 // 全局组件
 Vue.use(plugins)
 Vue.use(Toast)
