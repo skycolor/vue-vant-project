@@ -1,16 +1,15 @@
 <template>
     <van-address-edit
-        :area-list="areaList"
-        show-postal
-        show-delete
-        show-set-default
-        show-search-result
-        :search-result="searchResult"
-        :area-columns-placeholder="['请选择', '请选择', '请选择']"
-        @save="onSave"
-        @delete="onDelete"
-        @change-detail="onChangeDetail"
-        />
+      show-postal
+      show-delete
+      show-set-default
+      show-search-result
+      :search-result="searchResult"
+      :area-columns-placeholder="['请选择', '请选择', '请选择']"
+      @save="onSave"
+      @delete="onDelete"
+      @change-detail="onChangeDetail"
+      />
 </template>
 
 <script>
@@ -18,8 +17,7 @@ import { AddressEdit } from 'vant';
 export default {
     data() {
         return {
-            areaList: [],
-            searchResult: [],
+          searchResult: [],
         };
     },
     components: {

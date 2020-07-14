@@ -16,11 +16,18 @@ const routes = [
     path: '/home',
     component: Home
   },
-  // 表单
+  // 表单-填写
   {
     path: '/form',
     component: resolve => {
       require(['@/views/form/index.vue'], resolve)
+    }
+  },
+  // 表单-成功
+  {
+    path: '/form/success',
+    component: resolve => {
+      require(['@/views/form/success.vue'], resolve)
     }
   },
   // 地址-列表

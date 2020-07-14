@@ -27,6 +27,7 @@ export default {
 </script>
 
 <style lang="less">
+@import './styles/common.less';
 #app{
   /** 解决路由切换动画上下闪动问题 */
   .router {

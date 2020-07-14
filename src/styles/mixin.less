@@ -1,0 +1,24 @@
+// 背景图
+.bgimg(@bg) { 
+	background-image: url(@bg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+// 字体
+.font(@fontSize: 24px, @lineHeight: 24px, @color: #000){
+  font-size: @fontSize;
+  line-height: @lineHeight;
+  color: @color;
+}
+// 尺寸
+.wh(@w: 24px, @h: 24px){
+  width: @w;
+  height: @h;
+}
+// 弹性盒子
+.flex(@alignItems: center, @justifyContent: start, @direction: row){
+  display: flex;
+  align-items: @alignItems;
+  justify-content: @justifyContent;
+  flex-direction: @direction;
+}
